@@ -1,0 +1,20 @@
+class Empty:
+    def __init__(self):
+        self.IsEmpty = True
+
+class Node:
+    def __init__(self, Name):
+        self.IsEmpty = False
+        self.Name = Name
+
+    def __str__(self):
+        return ('{}').format(self.Name)
+
+Name = []
+
+Name.append("Whitney")
+Name.append("Anders")
+Name.append("Lukas")
+
+
+print (Name)

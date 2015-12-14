@@ -1,0 +1,12 @@
+class Movie:
+    def __init__(self, Title, Rating, Genre):
+        self.Title = Title
+        self.Rating = Rating
+        self.Genre = Genre
+
+    def __str__(self):
+         return ('The movie\'s name is {}, the rating of the movie is {} and the genre is {}').format(self.Title,self.Rating,self.Genre)
+
+info = Movie("50 Shades of Grey", "4.1", "Drama, Romance")
+
+print (info)
