@@ -1,0 +1,11 @@
+x = raw_input("Sentence please?")
+x.upper() == x.lower()
+
+while True:
+   if x == x.lower() or x == x.upper() or x.isdigit() < 0:
+       print "True!"
+       break
+   else:
+       x.isdigit() > 0
+       print "False!"
+       break
