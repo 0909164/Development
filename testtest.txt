@@ -1,24 +1,20 @@
-password = raw_input("Type a password")
-uppercase = 0
-numbers = 0
-lowercase = 0
-space = 0
-symbols_char = 0
+x = raw_input("Sentence Please?")
+
 symbols = "!@#$%^&*()[];:'?<>.,"
-for p in password:
-    print(p)
-    if p.upper().lower():
-        uppercase += 1
-        lowercase += 1
-    elif p.isspace():
-        space += 1
-    elif p == sc:
-        symbols_char += 1
+
+x.isupper() == x.islower()
+
+while True:
+
+    if x.isdigit():
+        print ("False" + "\n" + x)
+        break
     else:
-        p.isdigit()
-        numbers += 1
-# Password check
-if p.upper() >= 1:
-    print("True")
-elif p.isdigit() >= 0:
-    print ("False")
+        x == symbols or x == x.isupper() or x == x.islower()
+        print ("True" + "\n" + x)
+        break
+if x == x[::-1]:
+    print ("You can reverse this" + "\n" + x)
+else:
+    x != x[::-1]
+    print ("False, you can not reverse this")
