@@ -1,9 +1,9 @@
 package Game;
 
 import component.IComponent;
-import factory.IkeaFactory;
 import factory.IFactory;
-import factory.MiningFactory;
+//import factory.IkeaFactory;
+//import factory.MiningFactory;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
 import stateMachine.Call;
@@ -19,20 +19,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameState implements IComponent {
-    List<ITruck>trucks;
+    List<ITruck> trucks;
     IFactory factory1;
     IFactory factory2;
     List<IStateMachine> processes;
 
     Image background;
-    Image ikea;
 
     public GameState(Image background, Image mineCart, Image productBox, Image volvo, Image mine, Image ikea, Image oreContainer, Image productContainer) {
         this.background = background;
-        this.ikea = ikea;
 
-        factory1 = new MiningFactory(new Point2D(100, 70), new Dimension2D(150, 230 / 2), new Point2D(100, 0), new Point2D(5, 0), mine, oreContainer, mineCart, volvo);
-        factory2 = new IkeaFactory(new Point2D(600, 340), new Dimension2D(150, 175 / 2), new Point2D(-100, 0), new Point2D(-4, 0), ikea, productContainer, productBox, volvo);
+        factory1 = null;//new MiningFactory(new Point2D(100, 70), new Dimension2D(150, 230/2), new Point2D(100,0), new Point2D(5,0), mine, oreContainer, mineCart, volvo);
+        factory2 = null;//new IkeaFactory(new Point2D(600, 340), new Dimension2D(150, 175/2), new Point2D(-100,0), new Point2D(-4,0), ikea, productContainer, productBox, volvo);
 
         trucks = new ArrayList<>();
 
@@ -50,16 +48,16 @@ public class GameState implements IComponent {
             this.trucks = trucks;
         }
 
-        public void run() {
+        public void run(){
             ITruck truck = factory.getReadyTruck();
-            if (truck != null) {
+            if (truck != null){
                 truck.startEngine();
                 trucks.add(truck);
             }
         }
     }
-
-    public void update(float dt) {
+    
+    public void update(float dt){
         trucks.removeIf(truck -> truck.getPosition().getX() < -50 || truck.getPosition().getX() > 1000);
 
         for (IStateMachine process : processes) {
@@ -74,8 +72,8 @@ public class GameState implements IComponent {
         factory2.update(dt);
     }
 
-    public void draw(GraphicsContext gc) {
-        gc.drawImage(background, 0, 0);
+    public void draw(GraphicsContext gc){
+        gc.drawImage(background, 0, 0 );
 
         for (ITruck truck : trucks) {
             truck.draw(gc);

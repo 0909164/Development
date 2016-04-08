@@ -2,17 +2,17 @@ package Game;
 
 import component.IComponent;
 import factory.IFactory;
-//import factory.IkeaFactory;
-//import factory.MiningFactory;
+import factory.IkeaFactory;
+import factory.MiningFactory;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Point2D;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import stateMachine.Call;
 import stateMachine.IAction;
 import stateMachine.IStateMachine;
 import stateMachine.Repeat;
 import truck.ITruck;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ public class GameState implements IComponent {
     public GameState(Image background, Image mineCart, Image productBox, Image volvo, Image mine, Image ikea, Image oreContainer, Image productContainer) {
         this.background = background;
 
-        factory1 = null;//new MiningFactory(new Point2D(100, 70), new Dimension2D(150, 230/2), new Point2D(100,0), new Point2D(5,0), mine, oreContainer, mineCart, volvo);
-        factory2 = null;//new IkeaFactory(new Point2D(600, 340), new Dimension2D(150, 175/2), new Point2D(-100,0), new Point2D(-4,0), ikea, productContainer, productBox, volvo);
+        factory1 = new MiningFactory(new Point2D(100, 70), new Dimension2D(150, 230/2), new Point2D(100,0), new Point2D(5,0), mine, oreContainer, mineCart, volvo);
+        factory2 = new IkeaFactory(new Point2D(600, 340), new Dimension2D(150, 175/2), new Point2D(-100,0), new Point2D(-4,0), ikea, productContainer, productBox, volvo);
 
         trucks = new ArrayList<>();
 
